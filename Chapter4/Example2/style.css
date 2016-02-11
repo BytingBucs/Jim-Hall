@@ -3,11 +3,41 @@
 	padding: 0;
 }
 
-.comments p:nth child(even){
+header, main, footer {
+	min-width: 855px;
+}
+
+header .container, main .container, footer .container {
+    max-width: 855px;
+    margin: auto;
+}
+
+header {
+	background: white;
+	overflow: auto;
+}
+
+header nav {
+	width: 285px;
+	margin-top: 20px;
+}
+
+header .left{
+    float: left;
+    width: 570px;
+}
+
+header .right {
+    float: right;
+    width: 285px;
+}
+
+
+.comments p:nth-child(even){
 	background: lavender;
 }
 
-.comments p:nth child(odd){
+.comments p:nth-child(odd){
 	background: gainsboro;
 }
 
