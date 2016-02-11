@@ -1,6 +1,10 @@
 var main = function () {
 	"use strict";
 
-	window.alert("Hello World!");
+	$(".comment-input button").on("click", function (event) 
+	{
+		$(".comments").append("<p>this is a new comment</p>");
+	});
 };
+
 $(document).ready(main);
