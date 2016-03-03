@@ -1,11 +1,29 @@
-var main = function () {
+var main = function (toDoObjects) 
+{  // now main has access to our toDo List!
 	"use strict";
-    var toDos = ["Get groceries",
-                 "Make up some new ToDos",
-                 "Prep for Monday's class",
-                 "Answer emails",
-                 "Take Gracie to the park",
-                 "Finish writing this book"];
+    var toDos = toDoObjects.map(function (todo)
+    {
+        return toDo.description;
+    });
+    
+};
+ 
+
+$(document).ready(function()
+{
+    $.getJSON("todos.json", function (toDoObjects) 
+    {
+        // call main with the to-dos as an argument
+        main(toDoObjects);
+    });
+});
+
+        var toDos = ["Get groceries",
+                    "Make up some new ToDos",
+                    "Prep for Monday's class",
+                    "Answer emails",
+                    "Take Gracie to the park",
+                    "Finish writing this book"];
 
     $(".tabs a span").toArray().forEach(function (element) {
         var $element = $(element);
@@ -30,7 +48,10 @@ var main = function () {
                 toDos.forEach(function (todo) {
                     $content.append($("<li>").text(todo));
                 });
-            } else if ($element.parent().is(":nth-child(3)")) {
+            } else if (element.parent().is(":nth-child(3)")){
+                // THIS IS THE TAGS TAB CODE
+                console.log("the tags tab was clicked!");
+            } else if ($element.parent().is(":nth-child(4)")) {
                 $input = $("<input>"),
                 $submit = $("<submit>").text("Submit");
                 $submit.on("click", function () {
@@ -49,6 +70,6 @@ var main = function () {
     });
 
     $(".tabs a:first-child span").trigger("click");
-};
+
 
 $(document).ready(main);
