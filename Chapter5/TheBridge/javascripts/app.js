@@ -1,23 +1,40 @@
-var main = function () {
+var main = function () 
+{
 	"use strict";
 
 	console.log("Hello World!");
 
-$.getJSON("cards/aceOfSpades.json",
-function (card) {
-	// create an element to hold the card
-	var $cardParagraph = $("<p>");
+	$.getJSON("cards/aceOfSpades.json",function (card) 
+	{
+		// create an element to hold the card
+		var $cardParagraph = $("<p>");
 
-	// add text to the paragraph element
+		// add text to the paragraph element
+		$cardParagraph.text(card.rank + " of  " + card.suit);
 
-	$cardParagrapgit sh.text(card.rank + " of  " + card.suit);
+		// append the card paragraph to main
+		$("main").append($cardParagraph);
 
-	// append the card paragraph to main
+		console.log(card);
+	});
 
-	$("main").append($cardParagraph);
+	$.getJSON("cards/hand.json", function (hand)
+	{
+		var $list = $("<ul>");
 
-	console.log(card);
-});
+		// hand is an array, so we can iterate over it
+		// using a forEach loop
+		hand.forEach(function (card)
+		{
+			//creat a list item to hold the card
+			// and append it to the list
+			var $card = $("<li>");
+			$card.text(card.rank + " of " + card.suit);
+			$list.append($card);
+		});
+		//apend the list to main
+		$("main").append($list);
+	});
 
-} 
+}; 
 $(document).ready(main); 
