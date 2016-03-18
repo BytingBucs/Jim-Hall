@@ -4,7 +4,7 @@ var main = function ()
 
 	console.log("Hello World!");
 
-	$.getJSON("cards/aceOfSpades.json",function (card) 
+	$.getJSON("cards/aceOfSpades.json", function (card) 
 	{
 		// create an element to hold the card
 		var $cardParagraph = $("<p>");
@@ -15,7 +15,7 @@ var main = function ()
 		// append the card paragraph to main
 		$("main").append($cardParagraph);
 
-		console.log(card);
+		//console.log(card);
 	});
 
 	$.getJSON("cards/hand.json", function (hand)
@@ -32,9 +32,10 @@ var main = function ()
 			$card.text(card.rank + " of " + card.suit);
 			$list.append($card);
 		});
+		
 		//apend the list to main
 		$("main").append($list);
 	});
 
-}; 
+};
 $(document).ready(main); 
